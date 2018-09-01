@@ -1,14 +1,15 @@
-#BattleShip
+# BattleShip
 
 In this project you’ll use Ruby to build an implementation of the classic game Battleship.
 
-#Introduction
+# Introduction
 
-##Learning Goals / Areas of Focus
+## Learning Goals / Areas of Focus
 * Proficiently use TDD to drive development
 * Practice breaking a program into logical components
 * Practice implementing a useable REPL interface
 * Apply previously learned Enumerable techniques in a real context
+
 ## Base Expectations
 You are to build a playable game of Battleship that runs in a REPL interface. The game will allow a single human player to play against a (simplistic) computer player.
 
@@ -22,7 +23,8 @@ The game will include several distinct phases:
 6. Ship Hit Sequence
 7. End Game Sequence
 8. Setup SimpleCov to monitor test coverage along the way
-##Start Game Sequence
+
+## Start Game Sequence
 * The player starts the game by running ruby battleship.rb from within your project directory
 * Then they see:
 
@@ -39,7 +41,7 @@ Would you like to (p)lay, read the (i)nstructions, or (q)uit?
 ## Computer Ship Placement
 When the player decides to start a game, the computer player should place their ships. The baseline computer should simply use random placements, but still obey these constraints:
 
-##Validating Ship Coordinates
+## Validating Ship Coordinates
 Note that there are certain restrictions on where a ship can be placed. Specifically:
 
 * Ships cannot wrap around the board
@@ -58,7 +60,7 @@ The grid has A1 at the top left and D4 at the bottom right.
 
 Enter the squares for the two-unit ship:
 ```
-##Player Entering Ship Coordinates
+## Player Entering Ship Coordinates
 Then they enter coordinates like this:
 
 ``` ruby
@@ -127,7 +129,7 @@ Finally, give the player an overview of the computer’s progress so far by disp
 
 Then, return to the Player Shot Sequence.
 
-##Ship Hit Sequence
+## Ship Hit Sequence
 * If the hit did not sink the ship, tell them that they hit an enemy ship
 * If the hit sunk the ship, tell them they sunk it and the size of the ship.
 * If the hit sunk the ship and it was the last enemy ship, then enter the End Game Sequence
@@ -139,7 +141,7 @@ When either the player or computer win the game…
 - Output how many shots it took the winner to sink the opponent’s ships
 - Output the total time that the game took to play
 
-##Extension
+## Extension
 Make your game playable through a web browser. You may find This Tutorial helpful.
 
 ## Evaluation Rubric
@@ -175,7 +177,7 @@ Expectations:
 * Test Coverage metrics are present (SimpleCov)
 * A test RakeTask is implemented
 
-##4. Functionality
+## 4. Functionality
 Expectations:
 
 * Application meets all requirements (extension not req’d)
