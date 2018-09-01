@@ -11,15 +11,18 @@ class Ship
 
   def hit
     @hit = true
-    if @hit_counter >= @ship_length
-      @sink = true
-    else
-      @hit_counter += 1
-    end
+    @hit_counter += 1
+    sink
   end
 
   def hit?
     @hit
+  end
+
+  def sink
+    if @hit_counter >= @ship_length
+      @sink = true
+    end 
   end
 
   def sink?
