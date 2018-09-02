@@ -19,6 +19,14 @@ class BoardSpaceTest < Minitest::Test
     assert_equal [],  board.columns
 
   end
+
+  def test_if_it_can_hold_a_diccionary
+    board = BoardSpace.new
+
+    expected = {"a" => 0,"b" => 1, "c" => 2, "d" => 3, "e" => 4, "f" => 5, "g" => 6, "h" => 7, "i" => 8, "j" => 9}
+    assert_equal expected,  board.diccionary
+  end
+
   def test_if_it_can_reset_the_rows
     board = BoardSpace.new
 
@@ -38,6 +46,7 @@ class BoardSpaceTest < Minitest::Test
   end
 
   def test_if_it_can_hold_a_single_space_ship
+    skip
     board = BoardSpace.new
     ship = Ship.new(1)
 
@@ -45,8 +54,13 @@ class BoardSpaceTest < Minitest::Test
     board.place(ship, "A2")
 
     assert_equal ship, board.columns[0][1]
-
   end
 
+  def test_if_it_can_get_a_location_on_the_gird
+    skip
+    board = BoardSpace.new
+
+    assert_equal [0,1], board.grid("A2")
+  end
 
 end
