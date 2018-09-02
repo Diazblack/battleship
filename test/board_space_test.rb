@@ -45,8 +45,14 @@ class BoardSpaceTest < Minitest::Test
     assert_equal expected,  board.columns
   end
 
+
+  def test_if_it_can_get_a_location_on_the_gird
+    board = BoardSpace.new
+
+    assert_equal [0,1], board.grid("A2")
+  end
+
   def test_if_it_can_hold_a_single_space_ship
-    skip
     board = BoardSpace.new
     ship = Ship.new(1)
 
@@ -56,11 +62,5 @@ class BoardSpaceTest < Minitest::Test
     assert_equal ship, board.columns[0][1]
   end
 
-  def test_if_it_can_get_a_location_on_the_gird
-    skip
-    board = BoardSpace.new
-
-    assert_equal [0,1], board.grid("A2")
-  end
 
 end
