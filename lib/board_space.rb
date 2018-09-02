@@ -27,7 +27,6 @@ class BoardSpace
     grid_coordenades = []
     grid_coordenades << @diccionary[string[0].downcase]
     grid_coordenades << (string[1].to_i) - 1
-
   end
 
   def place(ship, first_position)
