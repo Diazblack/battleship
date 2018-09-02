@@ -36,4 +36,17 @@ class BoardSpaceTest < Minitest::Test
     expected = [[" ", " ", " ", " "], [" ", " ", " ", " "], [" ", " ", " ", " "], [" ", " ", " ", " "]]
     assert_equal expected,  board.columns
   end
+
+  def test_if_it_can_hold_a_single_space_ship
+    board = BoardSpace.new
+    ship = Ship.new(1)
+
+    board.reset(4)
+    board.place(ship, "A2")
+
+    assert_equal ship, board.columns[0][1]
+
+  end
+
+
 end
