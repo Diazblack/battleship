@@ -29,9 +29,19 @@ class BoardSpace
     grid_coordenades << (string[1].to_i) - 1
   end
 
-  def place(ship, first_position)
-    space = grid(first_position)
-    @columns[space[0]][space[1]] = ship
+  def place(ship, begining, end_position = "")
+    if ship.ship_length <= 1
+      space = grid(begining)
+
+      @columns[space[0]][space[1]] = ship
+    else
+      space_1 = grid(begining)
+      space_2 = grid(end_position)
+
+      @columns[space_1[0]][space_1[1]] = ship
+      @columns[space_2[0]][space_2[1]] = ship
+    end
   end
+
 
 end
