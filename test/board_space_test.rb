@@ -102,9 +102,9 @@ class BoardSpaceTest < Minitest::Test
 
     assert_equal true, board.columns[1][1].hit?
 
-    board.shot("A3")
+    board.shot("A4")
 
-    assert_equal "M", board.columns[0][2]
+    assert_equal "M", board.columns[0][3]
   end
 
 end

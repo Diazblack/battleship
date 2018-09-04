@@ -59,11 +59,10 @@ class BoardSpace
 
   def shot(string)
     position = grid(string)
-    space = @columns[position[0]][position[1]]
-    if space == " "
-      space += "M"
+    if @columns[position[0]][position[1]] == " "
+      @columns[position[0]][position[1]] = "M"
     else
-      space.hit
+      @columns[position[0]][position[1]].hit
     end
   end
 end
