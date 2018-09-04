@@ -25,8 +25,25 @@ class BoardSpace
 
   def grid(string)
     grid_coordenades = []
-    grid_coordenades << @diccionary[string[0].downcase]
-    grid_coordenades << (string[1].to_i) - 1
+    splited_strings = string.split(", ")
+
+      if splited_strings.length < 2
+        splited_strings.each do |letter|
+          grid_coordenades << @diccionary[letter[0].downcase]
+          grid_coordenades << (letter[1].to_i) - 1
+        end
+      else
+      grid_coordenades = shovel_in_array(splited_strings)
+    end
+      grid_coordenades
+  end
+
+  def shovel_in_array(strings)
+    coordenades = []
+    strings.each do |string|
+      coordenades << [@diccionary[string[0].downcase], (string[1].to_i) - 1]
+    end
+    coordenades
   end
 
   def place(ship, begining, end_position = "")

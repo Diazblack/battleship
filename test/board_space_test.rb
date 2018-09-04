@@ -51,8 +51,7 @@ class BoardSpaceTest < Minitest::Test
     assert_equal [0,1], board.grid("A2")
   end
 
-  def test_if_it_can_get_a_location_on_the_gird_for_three_spaces
-    skip
+  def test_if_it_can_get_a_location_on_the_grid_for_three_spaces
     board = BoardSpace.new
 
     assert_equal [[0, 1], [1, 1], [2, 1]], board.grid("A2, B2, C2")
@@ -80,6 +79,7 @@ class BoardSpaceTest < Minitest::Test
   end
 
   def test_if_it_can_hold_a_two_spaces_ship_vertically
+
     board = BoardSpace.new
     ship_2 = Ship.new(2)
 
