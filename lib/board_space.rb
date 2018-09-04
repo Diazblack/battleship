@@ -46,19 +46,24 @@ class BoardSpace
     coordenades
   end
 
-  def place(ship, begining, end_position = "")
+  def place(ship, begining)
+    space = grid(begining)
     if ship.ship_length <= 1
-      space = grid(begining)
-
       @columns[space[0]][space[1]] = ship
     else
-      space_1 = grid(begining)
-      space_2 = grid(end_position)
-
-      @columns[space_1[0]][space_1[1]] = ship
-      @columns[space_2[0]][space_2[1]] = ship
+      space.each do |space_1|
+        @columns[space_1[0]][space_1[1]] = ship
+      end
     end
   end
 
-
+  def shot(string)
+    position = grid(string)
+    space = @columns[position[0]][position[1]]
+    if space == " "
+      space += "M"
+    else
+      space.hit
+    end
+  end
 end
