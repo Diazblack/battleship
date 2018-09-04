@@ -105,7 +105,6 @@ class BoardSpaceTest < Minitest::Test
     board.reset(4)
     board.place(ship_2, "B2, C2")
 
-    # binding.pry
     board.shot("B2")
 
     assert_equal true, board.columns[1][1].hit?
