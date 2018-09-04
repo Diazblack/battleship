@@ -1,10 +1,8 @@
 class BoardSpace
-  attr_reader :rows,
-              :columns,
+  attr_reader :columns,
               :diccionary
 
   def initialize
-    @rows = []
     @columns = []
     @diccionary = {"a" => 0,"b" => 1, "c" => 2, "d" => 3, "e" => 4, "f" => 5,
                   "g" => 6, "h" => 7, "i" => 8, "j" => 9}
@@ -17,10 +15,11 @@ class BoardSpace
   end
 
   def reset_rows(number)
+    rows = []
     number.times do |y|
-      @rows[y] = " "
+      rows[y] = " "
     end
-    @rows
+    rows
   end
 
   def grid(string)

@@ -15,7 +15,6 @@ class BoardSpaceTest < Minitest::Test
   def test_if_it_can_hold_rows_and_columns_by_default
     board = BoardSpace.new
 
-    assert_equal [],  board.rows
     assert_equal [],  board.columns
 
   end
@@ -33,7 +32,7 @@ class BoardSpaceTest < Minitest::Test
     board.reset_rows(4)
 
     expected = [" ", " ", " ", " "]
-    assert_equal expected,  board.rows
+    assert_equal expected,  board.reset_rows(4)
   end
 
   def test_if_it_can_reset_the_board
@@ -67,6 +66,10 @@ class BoardSpaceTest < Minitest::Test
     board.place(ship, "A2")
 
     assert_equal ship, board.columns[0][1]
+    assert_equal " ", board.columns[0][2]
+    assert_equal " ", board.columns[1][1]
+    assert_equal " ", board.columns[2][1]
+    assert_equal " ", board.columns[3][1]
   end
 
   def test_if_it_can_hold_a_two_spaces_ship
@@ -78,6 +81,8 @@ class BoardSpaceTest < Minitest::Test
 
     assert_equal ship_1, board.columns[0][1]
     assert_equal ship_1, board.columns[0][2]
+    assert_equal " ", board.columns[0][3]
+    assert_equal " ", board.columns[1][1]
   end
 
   def test_if_it_can_hold_a_two_spaces_ship_vertically
@@ -90,6 +95,7 @@ class BoardSpaceTest < Minitest::Test
 
     assert_equal ship_2, board.columns[1][1]
     assert_equal ship_2, board.columns[2][1]
+    assert_equal " ", board.columns[3][1]
   end
 
   def test_if_it_can_take_a_hit_and_then_miss
@@ -98,6 +104,8 @@ class BoardSpaceTest < Minitest::Test
 
     board.reset(4)
     board.place(ship_2, "B2, C2")
+
+    # binding.pry
     board.shot("B2")
 
     assert_equal true, board.columns[1][1].hit?
