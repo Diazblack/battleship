@@ -3,7 +3,6 @@ class Display
 
   def initialize(board)
     @board = board
-    # binding.pry
   end
 
   def print
@@ -17,7 +16,9 @@ class Display
   end
 
   def shot(string)
-    position = grid(string)
+        binding.pry
+    position = @columns.grid(string)
+
     if @columns[position[0]][position[1]] == " "
       @board[position[0]][position[1]] = "M"
     else
