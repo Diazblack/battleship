@@ -8,20 +8,6 @@ class Board
                   "g" => 6, "h" => 7, "i" => 8, "j" => 9}
   end
 
-  def reset(number)
-    number.times do |x|
-      @columns[x] = reset_rows(number)
-    end
-  end
-
-  def reset_rows(number)
-    rows = []
-    number.times do |y|
-      rows[y] = " "
-    end
-    rows
-  end
-
   def grid(string)
     grid_coordenades = []
     splited_strings = string.split(", ")
@@ -56,12 +42,4 @@ class Board
     end
   end
 
-  # def shot(string)
-  #   position = grid(string)
-  #   if @columns[position[0]][position[1]] == " "
-  #     @columns[position[0]][position[1]] = "M"
-  #   else
-  #     @columns[position[0]][position[1]].hit
-  #   end
-  # end
 end

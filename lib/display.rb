@@ -1,8 +1,22 @@
 class Display
   attr_reader :board
 
-  def initialize(board)
-    @board = board
+  def initialize
+    @board = []
+  end
+
+  def set(number)
+    number.times do |x|
+      @board[x] = set_rows(number)
+    end
+  end
+
+  def set_rows(number)
+    rows = []
+    number.times do |y|
+      rows[y] = " "
+    end
+    rows
   end
 
   def print
@@ -10,13 +24,12 @@ class Display
     p "==========="
     p ". 1 2 3 4"
     4.times do |i|
-      puts "#{letters[i]} #{@board.columns[i].join(" ")}"
+      puts "#{letters[i]} #{@board[i].join(" ")}"
     end
     p "==========="
   end
 
   def shot(string)
-        binding.pry
     position = @columns.grid(string)
 
     if @columns[position[0]][position[1]] == " "

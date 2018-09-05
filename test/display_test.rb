@@ -8,32 +8,35 @@ class DisplayTest < Minitest::Test
   def test_if_exist
     ship = Ship.new(2)
     board = Board.new
+    screen = Display.new
 
-    board.reset(4)
-    board.place(ship, "A2, A3")
-
-    screen = Display.new(board)
+    screen.set(4)
 
     assert_instance_of Display, screen
   end
 
-  def test_if_it_can_miss
-    ship = Ship.new(2)
-    board = Board.new
+  def test_if_it_can_set_the_rows
+    screen = Display.new
 
-    board.reset(4)
-
-    board.place(ship, "B2, C2")
-
-    screen = Display.new(board)
-
-    screen.shot("B2")
-
-    assert_equal true, board.columns[1][1].hit?
-    assert_equal "H", screen.board[1][1]
-
-    screen.shot("A4")
-
-    assert_equal "M", screen.board[0][3]
+    expected = [" ", " ", " ", " "]
+    assert_equal expected, screen.set_rows(4)
   end
+
+  def test_if_it_can_set_the_board
+    screen = Display.new
+
+    screen.set(4)
+
+    expected = [[" ", " ", " ", " "], [" ", " ", " ", " "], [" ", " ", " ", " "], [" ", " ", " ", " "]]
+    assert_equal expected,  screen.board
+  end
+
+  def test_if_it_can_set_the_board
+    screen = Display.new
+
+    screen.set(4)
+    binding.pry
+  end
+
+
 end

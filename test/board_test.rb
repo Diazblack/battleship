@@ -12,12 +12,6 @@ class BoardTest < Minitest::Test
 
   end
 
-  def test_if_it_can_hold_rows_and_columns_by_default
-    board = Board.new
-
-    assert_equal [],  board.columns
-
-  end
 
   def test_if_it_can_hold_a_diccionary
     board = Board.new
@@ -26,23 +20,6 @@ class BoardTest < Minitest::Test
     assert_equal expected,  board.diccionary
   end
 
-  def test_if_it_can_reset_the_rows
-    board = Board.new
-
-    board.reset_rows(4)
-
-    expected = [" ", " ", " ", " "]
-    assert_equal expected,  board.reset_rows(4)
-  end
-
-  def test_if_it_can_reset_the_board
-    board = Board.new
-
-    board.reset(4)
-
-    expected = [[" ", " ", " ", " "], [" ", " ", " ", " "], [" ", " ", " ", " "], [" ", " ", " ", " "]]
-    assert_equal expected,  board.columns
-  end
 
   def test_if_it_can_get_a_location_on_the_gird
     board = Board.new
@@ -96,22 +73,6 @@ class BoardTest < Minitest::Test
     assert_equal ship_2, board.columns[1][1]
     assert_equal ship_2, board.columns[2][1]
     assert_equal " ", board.columns[3][1]
-  end
-
-  def test_if_it_can_take_a_hit_and_then_miss
-    board = Board.new
-    ship_2 = Ship.new(2)
-
-    board.reset(4)
-    board.place(ship_2, "B2, C2")
-
-    board.shot("B2")
-
-    assert_equal true, board.columns[1][1].hit?
-
-    board.shot("A4")
-
-    assert_equal "M", board.columns[0][3]
   end
 
 end
