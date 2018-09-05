@@ -1,16 +1,16 @@
 class Board
-  attr_reader :columns,
+  attr_reader :ships,
               :diccionary
 
   def initialize
-    @columns = []
+    @ships = []
     @diccionary = {"a" => 0,"b" => 1, "c" => 2, "d" => 3, "e" => 4, "f" => 5,
                   "g" => 6, "h" => 7, "i" => 8, "j" => 9}
   end
 
   def grid(string)
     grid_coordenades = []
-    splited_strings = string.split(", ")
+    splited_strings = string.split(" ")
 
       if splited_strings.length < 2
         splited_strings.each do |letter|
@@ -31,15 +31,9 @@ class Board
     coordenades
   end
 
-  def place(ship, begining)
-    space = grid(begining)
-    if ship.ship_length <= 1
-        @columns[space[0]][space[1]] = ship
-    else
-      space.each do |space_1|
-        @columns[space_1[0]][space_1[1]] = ship
-      end
-    end
+  def place(ship, coordenades)
+    space = grid(coordenades)
+    @ships << ship.get_coordenades(space)
   end
 
 end

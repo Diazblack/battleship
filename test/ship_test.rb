@@ -9,6 +9,14 @@ class ShipTest < Minitest::Test
     assert_instance_of Ship , ship
   end
 
+  def test_if_it_can_get_coordenades
+    ship = Ship.new(2)
+
+    ship.get_coordenades([[0, 1], [1, 1]])
+
+    assert_equal [[0, 1], [1, 1]], ship.coordenades
+  end
+
   def test_if_ship_can_be_hit
     ship = Ship.new(2)
 
@@ -24,6 +32,5 @@ class ShipTest < Minitest::Test
     ship.hit
 
     assert_equal true, ship.sink?
-
   end
 end

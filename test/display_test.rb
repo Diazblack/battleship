@@ -8,7 +8,7 @@ class DisplayTest < Minitest::Test
   def test_if_exist
     ship = Ship.new(2)
     board = Board.new
-    screen = Display.new
+    screen = Display.new(board)
 
     screen.set(4)
 
@@ -16,14 +16,16 @@ class DisplayTest < Minitest::Test
   end
 
   def test_if_it_can_set_the_rows
-    screen = Display.new
+    board = Board.new
+    screen = Display.new(board)
 
     expected = [" ", " ", " ", " "]
     assert_equal expected, screen.set_rows(4)
   end
 
   def test_if_it_can_set_the_board
-    screen = Display.new
+    board = Board.new
+    screen = Display.new(board)
 
     screen.set(4)
 
@@ -32,7 +34,9 @@ class DisplayTest < Minitest::Test
   end
 
   def test_if_it_can_set_the_board
-    screen = Display.new
+    skip
+    board = Board.new
+    screen = Display.new(board)
 
     screen.set(4)
     binding.pry

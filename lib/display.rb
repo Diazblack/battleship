@@ -1,7 +1,9 @@
 class Display
-  attr_reader :board
+  attr_reader :board,
+              :ship_location
 
-  def initialize
+  def initialize(ships)
+    @ships_location = ships
     @board = []
   end
 
