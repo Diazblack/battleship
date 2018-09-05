@@ -12,7 +12,7 @@ class ShipTest < Minitest::Test
   def test_if_it_can_get_coordenades
     ship = Ship.new(2)
 
-    ship.get_coordenades([[0, 1], [1, 1]])
+    ship.set_coordenades([[0, 1], [1, 1]])
 
     assert_equal [[0, 1], [1, 1]], ship.coordenades
   end

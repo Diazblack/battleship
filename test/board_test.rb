@@ -41,14 +41,17 @@ class BoardTest < Minitest::Test
     assert_equal [0,1], board.ships.first.coordenades
   end
 
-  def test_if_it_can_hold_a_two_spaces_ship
+  def test_if_it_can_get_coordenades_from_ships
     board = Board.new
     ship_1 = Ship.new(3)
+    ship_2 = Ship.new(2)
 
     board.place(ship_1, "A2 A3 A4")
+    board.place(ship_2, "A1 B1")
 
-    assert_equal ship_1, board.ships.first
+    expected = [[0, 1], [0, 2], [0, 3], [0, 0], [1, 0] ]
 
+    assert_equal expected, board.get_coordenades
   end
 
 end

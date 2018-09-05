@@ -1,4 +1,5 @@
 require "./lib/board"
+require "./lib/ship"
 
 class Display
   attr_reader :board,
@@ -35,11 +36,8 @@ class Display
 
   def shoot(string)
     position = @ships_location.grid(string)
-    if @board[position[0]][position[1]] == " "
-      @board[position[0]][position[1]] = "M"
-    else
-      @columns[position[0]][position[1]].hit
-      @board[position[0]][position[1]] = "H"
-    end
+    binding.pry
   end
+
+
 end

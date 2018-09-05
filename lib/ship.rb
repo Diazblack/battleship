@@ -11,10 +11,10 @@ class Ship
     @sink =  false
   end
 
-  def get_coordenades(array)
+  def set_coordenades(array)
     @coordenades = array
   end
-  
+
   def hit
     @hit = true
     @hit_counter += 1

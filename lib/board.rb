@@ -1,3 +1,5 @@
+require "./lib/ship"
+
 class Board
   attr_reader :ships,
               :diccionary
@@ -33,8 +35,18 @@ class Board
 
   def place(ship, coordenades)
     space = grid(coordenades)
-    ship.get_coordenades(space)
+    ship.set_coordenades(space)
     @ships << ship
   end
 
+  def get_coordenades
+    ship_coordenades = []
+    @ships.first.coordenades.each do |coordenade|
+      ship_coordenades << coordenade
+    end
+    @ships.last.coordenades.each do |coordenade|
+      ship_coordenades << coordenade
+    end
+    ship_coordenades
+  end
 end
