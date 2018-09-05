@@ -33,7 +33,8 @@ class Board
 
   def place(ship, coordenades)
     space = grid(coordenades)
-    @ships << ship.get_coordenades(space)
+    ship.get_coordenades(space)
+    @ships << ship
   end
 
 end

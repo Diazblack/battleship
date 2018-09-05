@@ -6,7 +6,6 @@ require './lib/ship'
 
 class DisplayTest < Minitest::Test
   def test_if_exist
-    ship = Ship.new(2)
     board = Board.new
     screen = Display.new(board)
 
@@ -33,14 +32,17 @@ class DisplayTest < Minitest::Test
     assert_equal expected,  screen.board
   end
 
-  def test_if_it_can_set_the_board
-    skip
-    board = Board.new
-    screen = Display.new(board)
+  def test_if_it_shoot_and_miss
+    ship_1 = Ship.new(3)
+    space = Board.new
+    screen = Display.new(space)
 
+
+    space.place(ship_1, "A2 A3 A4")
     screen.set(4)
-    binding.pry
-  end
+    screen.shoot("A1")
 
+    assert_equal "M", screen.board[0][0]
+  end
 
 end

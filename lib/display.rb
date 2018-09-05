@@ -1,6 +1,8 @@
+require "./lib/board"
+
 class Display
   attr_reader :board,
-              :ship_location
+              :ships_location
 
   def initialize(ships)
     @ships_location = ships
@@ -31,10 +33,9 @@ class Display
     p "==========="
   end
 
-  def shot(string)
-    position = @columns.grid(string)
-
-    if @columns[position[0]][position[1]] == " "
+  def shoot(string)
+    position = @ships_location.grid(string)
+    if @board[position[0]][position[1]] == " "
       @board[position[0]][position[1]] = "M"
     else
       @columns[position[0]][position[1]].hit
