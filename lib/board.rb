@@ -1,4 +1,4 @@
-class BoardSpace
+class Board
   attr_reader :columns,
               :diccionary
 
@@ -48,7 +48,7 @@ class BoardSpace
   def place(ship, begining)
     space = grid(begining)
     if ship.ship_length <= 1
-      @columns[space[0]][space[1]] = ship
+        @columns[space[0]][space[1]] = ship
     else
       space.each do |space_1|
         @columns[space_1[0]][space_1[1]] = ship
@@ -56,12 +56,12 @@ class BoardSpace
     end
   end
 
-  def shot(string)
-    position = grid(string)
-    if @columns[position[0]][position[1]] == " "
-      @columns[position[0]][position[1]] = "M"
-    else
-      @columns[position[0]][position[1]].hit
-    end
-  end
+  # def shot(string)
+  #   position = grid(string)
+  #   if @columns[position[0]][position[1]] == " "
+  #     @columns[position[0]][position[1]] = "M"
+  #   else
+  #     @columns[position[0]][position[1]].hit
+  #   end
+  # end
 end
