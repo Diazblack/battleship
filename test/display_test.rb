@@ -59,7 +59,27 @@ class DisplayTest < Minitest::Test
 
     screen.shoot("A2")
 
-    assert_equal "H", screen.board[0][1]
     assert_equal true, ship_1.hit?
+    assert_equal "H", screen.board[0][1]
+  end
+
+  def test_if_it_shoot_two_ships
+    ship_1 = Ship.new(3)
+    ship_2 = Ship.new(2)
+    space = Board.new
+    screen = Display.new(space)
+
+
+    space.place(ship_1, "A2 A3 A4")
+    space.place(ship_2, "")
+    screen.set(4)
+    screen.shoot("A1")
+
+    assert_equal "M", screen.board[0][0]
+
+    screen.shoot("A2")
+
+    assert_equal true, ship_1.hit?
+    assert_equal "H", screen.board[0][1]
   end
 end
