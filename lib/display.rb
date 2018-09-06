@@ -33,16 +33,19 @@ class Display
     end
     p "==========="
   end
-###necesita ser acomodado para acomodar 2 barcos y arrglar el problema de impresion
+
   def shoot(string)
     position = @ships_location.grid(string)
-    @ships_location.get_coordenades.each do |data|
-      if data == position
+    @ships_location.get_coordenades.each_with_index do |data, i|
+      board[position[0]][position[1]] = "M"
+      if data == position && i <= 2
         @ships_location.ships[0].hit
-        board[position[0]][position[1]] = "H"
-      else
-        board[position[0]][position[1]] = "M"
+        return board[position[0]][position[1]] = "H"
+      elsif data == position && i > 2
+        @ships_location.ships[1].hit
+        return board[position[0]][position[1]] = "H"
       end
     end
   end
+
 end

@@ -38,14 +38,16 @@ class Board
     ship.set_coordenades(space)
     @ships << ship
   end
-###necesita ser acomodado para acomodar 2 barcos
+
   def get_coordenades
     ship_coordenades = []
     @ships.first.coordenades.each do |coordenade|
       ship_coordenades << coordenade
     end
-    @ships.last.coordenades.each do |coordenade|
-      ship_coordenades << coordenade
+    if @ships.length > 1
+      @ships.last.coordenades.each do |coordenade|
+        ship_coordenades << coordenade
+      end
     end
     ship_coordenades
   end
