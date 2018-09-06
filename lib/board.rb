@@ -44,8 +44,10 @@ class Board
     @ships.first.coordenades.each do |coordenade|
       ship_coordenades << coordenade
     end
-    @ships.last.coordenades.each do |coordenade|
-      ship_coordenades << coordenade
+    if @ships.length > 1
+      @ships.last.coordenades.each do |coordenade|
+        ship_coordenades << coordenade
+      end
     end
     ship_coordenades
   end

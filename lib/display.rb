@@ -34,14 +34,39 @@ class Display
     p "==========="
   end
 
+  # def shoot(string)
+  #   position = @ships_location.grid(string)
+  #   @ships_location.get_coordenades.each_with_index do |data, i|
+  #     board[position[0]][position[1]] = "M"
+  #     if data == position && i <= 2
+  #       @ships_location.ships[0].hit
+  #       return board[position[0]][position[1]] = "H"
+  #     elsif data == position && i > 2
+  #       @ships_location.ships[1].hit
+  #       return board[position[0]][position[1]] = "H"
+  #     end
+  #   end
+  # end
+
   def shoot(string)
     position = @ships_location.grid(string)
-    @ships_location.get_coordenades.each do |data|
-      board[position[0]][position[1]] = "M"
-      if data == position
-        @ships_location.ships[0].hit
-        return board[position[0]][position[1]] = "H"
-      end
+    @ships_location.get_coordenades.each_with_index do |data, i|
+      print_state(data, i, position)
     end
   end
+
+
+
+
+  def print_state(data, i, position)
+    board[position[0]][position[1]] = "M"
+    if data == position && i <= 2
+      @ships_location.ships[0].hit
+      return board[position[0]][position[1]] = "H"
+    elsif data == position && i > 2
+      @ships_location.ships[1].hit
+      return board[position[0]][position[1]] = "H"
+    end
+  end
+
 end

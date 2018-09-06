@@ -71,7 +71,8 @@ class DisplayTest < Minitest::Test
 
 
     space.place(ship_1, "A2 A3 A4")
-    space.place(ship_2, "")
+    space.place(ship_2, "B1 B2")
+
     screen.set(4)
     screen.shoot("A1")
 
@@ -81,5 +82,10 @@ class DisplayTest < Minitest::Test
 
     assert_equal true, ship_1.hit?
     assert_equal "H", screen.board[0][1]
+
+    screen.shoot("B1")
+
+    assert_equal true, ship_2.hit?
+    assert_equal "H", screen.board[1][0]
   end
 end
